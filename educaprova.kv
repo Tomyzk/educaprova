@@ -1,0 +1,67 @@
+ScreenManager:
+    HomeScreen:
+
+<HomeScreen>:
+    name: "home"
+
+    FloatLayout:
+
+        # 🔹 FUNDO
+        Image:
+            source: "assets/fundo.jpg"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        # 🔹 LOGO
+        Image:
+            source: "assets/logo1.png"
+            size_hint: None, None
+            size: "220dp", "220dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.78}
+
+        # 🔹 SUBTÍTULO
+        MDLabel:
+            text: "Sua prova de concurso criada pela IA"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            font_style: "Body1"
+            pos_hint: {"center_y": 0.6}
+            size_hint_y: None
+            height: "50dp"
+
+        # 🔹 BOTÃO INICIAR
+        MDRaisedButton:
+            text: "INICIAR"
+            md_bg_color: 0.09, 0.41, 0.81, 1
+            text_color: 1, 1, 1, 1
+            size_hint: 0.6, None
+            height: "45dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        # 🔹 BOTÃO CRIAR CONTA
+        MDFlatButton:
+            text: "Criar conta"
+            text_color: 1, 1, 1, 1
+            size_hint: 0.6, None
+            height: "45dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.43}
+
+        # 🔹 BOTÃO GOOGLE
+        MDFillRoundFlatIconButton:
+            icon: "google"
+            text: "Entrar com Google"
+            md_bg_color: 1, 1, 1, 0.9
+            text_color: 0, 0, 0, 1
+            size_hint: 0.6, None
+            height: "45dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.36}
+
+        # 🔹 ILUSTRAÇÃO INFERIOR
+        Image:
+            source: "assets/ia.png"
+            size_hint: None, None
+            size: "200dp", "200dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.13}
