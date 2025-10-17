@@ -1,27 +1,26 @@
-ScreenManager:
+GerenciadorTelas:
     HomeScreen:
+    LoginScreen:
+    CadastroScreen:
+
 
 <HomeScreen>:
     name: "home"
 
     FloatLayout:
 
-        # 🔹 FUNDO
         Image:
             source: "assets/fundo.jpg"
             allow_stretch: True
             keep_ratio: False
             size_hint: 1, 1
-            pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-        # 🔹 LOGO
         Image:
             source: "assets/logo1.png"
             size_hint: None, None
             size: "220dp", "220dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.78}
 
-        # 🔹 SUBTÍTULO
         MDLabel:
             text: "Sua prova de concurso criada pela IA"
             halign: "center"
@@ -29,10 +28,7 @@ ScreenManager:
             text_color: 1, 1, 1, 1
             font_style: "Body1"
             pos_hint: {"center_y": 0.6}
-            size_hint_y: None
-            height: "50dp"
 
-        # 🔹 BOTÃO INICIAR
         MDRaisedButton:
             text: "INICIAR"
             md_bg_color: 0.09, 0.41, 0.81, 1
@@ -40,16 +36,18 @@ ScreenManager:
             size_hint: 0.6, None
             height: "45dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release:
+                app.root.current = "login"
 
-        # 🔹 BOTÃO CRIAR CONTA
         MDFlatButton:
             text: "Criar conta"
             text_color: 1, 1, 1, 1
             size_hint: 0.6, None
             height: "45dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.43}
+            on_release:
+                app.root.current = "cadastro"
 
-        # 🔹 BOTÃO GOOGLE
         MDFillRoundFlatIconButton:
             icon: "google"
             text: "Entrar com Google"
@@ -59,9 +57,114 @@ ScreenManager:
             height: "45dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.36}
 
-        # 🔹 ILUSTRAÇÃO INFERIOR
         Image:
             source: "assets/ia.png"
             size_hint: None, None
             size: "200dp", "200dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.13}
+
+
+<LoginScreen>:
+    name: "login"
+
+    FloatLayout:
+
+        Image:
+            source: "assets/fundo.jpg"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1, 1
+
+        MDLabel:
+            text: "Login"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            font_style: "H5"
+            pos_hint: {"center_y": 0.83}
+
+        MDTextField:
+            hint_text: "E-mail"
+            icon_right: "email"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.65}
+            mode: "rectangle"
+
+        MDTextField:
+            hint_text: "Senha"
+            password: True
+            icon_right: "lock"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+            mode: "rectangle"
+
+        MDRaisedButton:
+            text: "ENTRAR"
+            md_bg_color: 0.09, 0.41, 0.81, 1
+            text_color: 1, 1, 1, 1
+            size_hint_x: 0.6
+            pos_hint: {"center_x": 0.5, "center_y": 0.43}
+
+        MDFlatButton:
+            text: "Voltar"
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+            on_release:
+                app.root.current = "home"
+
+
+
+<CadastroScreen>:
+    name: "cadastro"
+
+    FloatLayout:
+
+        Image:
+            source: "assets/fundo.jpg"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1, 1
+
+        MDLabel:
+            text: "Criar Conta"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            font_style: "H5"
+            pos_hint: {"center_y": 0.83}
+
+        MDTextField:
+            hint_text: "Nome completo"
+            icon_right: "account"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.67}
+            mode: "rectangle"
+
+        MDTextField:
+            hint_text: "E-mail"
+            icon_right: "email"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.57}
+            mode: "rectangle"
+
+        MDTextField:
+            hint_text: "Senha"
+            password: True
+            icon_right: "lock"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.47}
+            mode: "rectangle"
+
+        MDRaisedButton:
+            text: "CRIAR CONTA"
+            md_bg_color: 0.09, 0.41, 0.81, 1
+            text_color: 1, 1, 1, 1
+            size_hint_x: 0.6
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+
+        MDFlatButton:
+            text: "Voltar"
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.27}
+            on_release:
+                app.root.current = "home"

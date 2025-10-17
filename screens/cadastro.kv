@@ -1,0 +1,49 @@
+<CadastroScreen>:
+    name: "cadastro"
+
+    FloatLayout:
+        Image:
+            source: "assets/fundo.jpg"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1, 1
+
+        MDLabel:
+            text: "Criar Conta"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            font_style: "H5"
+            pos_hint: {"center_y": 0.85}
+
+        MDTextField:
+            hint_text: "Nome completo"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.68}
+            mode: "rectangle"
+
+        MDTextField:
+            hint_text: "E-mail"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.58}
+            mode: "rectangle"
+
+        MDTextField:
+            hint_text: "Senha"
+            password: True
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.48}
+            mode: "rectangle"
+
+        MDRaisedButton:
+            text: "Cadastrar"
+            md_bg_color: 0.09, 0.41, 0.81, 1
+            size_hint_x: 0.6
+            pos_hint: {"center_x": 0.5, "center_y": 0.36}
+
+        MDFlatButton:
+            text: "Voltar"
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.28}
+            on_release:
+                app.root.current = "home"
