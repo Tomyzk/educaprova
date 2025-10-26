@@ -1,0 +1,82 @@
+<CriaProvaScreen>:
+    name: "criaprova"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                source: "assets/fundo.jpg"
+                size: self.size
+                pos: self.pos
+
+        Image:
+            source: "assets/logo1.png"
+            size_hint: (0.25, 0.25)
+            pos_hint: {"center_x": 0.5, "top": 0.98}
+
+        Label:
+            text: "Criamos Sua Prova em\nsegundos com IA"
+            font_size: "22sp"
+            color: 0, 0, 0, 1
+            halign: "center"
+            pos_hint: {"center_x": 0.5, "top": 0.85}
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Label:
+            text: "Criar Prova"
+            font_size: "20sp"
+            color: 0, 0, 0, 1
+            pos_hint: {"center_x": 0.5, "top": 0.78}
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: "10dp"
+            size_hint: (0.8, 0.08)
+            pos_hint: {"center_x": 0.5, "top": 0.70}
+
+            Button:
+                text: "📄 Importar PDF"
+                background_color: (0.1, 0.1, 0.1, 1)
+                color: (1, 1, 1, 1)
+                on_release: root.importar_pdf()
+
+            Button:
+                text: "🖼️ Importar JPG"
+                background_color: (0.1, 0.1, 0.1, 1)
+                color: (1, 1, 1, 1)
+                on_release: root.importar_jpg()
+
+        Button:
+            text: "GERAR PROVA"
+            size_hint: (0.8, 0.08)
+            pos_hint: {"center_x": 0.5, "top": 0.60}
+            background_color: (0.1, 0.3, 0.9, 1)
+            on_release: root.gerar_prova()
+
+        TextInput:
+            hint_text: "Digite o texto da prova"
+            size_hint: (0.8, 0.15)
+            pos_hint: {"center_x": 0.5, "top": 0.47}
+            multiline: True
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (0.8, 0.08)
+            spacing: "10dp"
+            pos_hint: {"center_x": 0.5, "top": 0.32}
+
+            Spinner:
+                text: "Múltipla escolha"
+                values: ["Múltipla escolha", "Verdadeiro ou Falso", "Dissertativa"]
+                size_hint_x: 0.5
+
+            Spinner:
+                text: "000"
+                values: ["5", "10", "15", "20", "30", "50"]
+                size_hint_x: 0.5
+
+        Button:
+            text: "GERAR PROVA"
+            size_hint: (0.8, 0.08)
+            pos_hint: {"center_x": 0.5, "top": 0.22}
+            background_color: (0.1, 0.3, 0.9, 1)
+            on_release: root.gerar_prova()

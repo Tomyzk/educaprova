@@ -1,0 +1,7 @@
+django>=5.0,<6.0
+djangorestframework>=3.14
+djangorestframework-simplejwt>=5.3
+PyMySQL>=1.1
+bcrypt>=4.1
+mysqlclient>=2.2 ; platform_system != 'Windows'
+python-dotenv>=1.0

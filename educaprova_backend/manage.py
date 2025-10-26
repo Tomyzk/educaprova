@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+import os
+import sys
+
+
+def main():
+    # Load .env before importing Django
+    try:
+        from dotenv import load_dotenv
+
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        load_dotenv(os.path.join(base_dir, ".env"))
+    except Exception:
+        pass
+
+    # Default to dev settings; allow override via env
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", os.environ.get("DJANGO_SETTINGS_MODULE", "educaprova_backend.settings.dev"))
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable?"
+        ) from exc
+    execute_from_command_line(sys.argv)
+
+
+if __name__ == "__main__":
+    main()
