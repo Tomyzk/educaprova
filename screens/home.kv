@@ -3,6 +3,7 @@
 
     FloatLayout:
 
+        # Imagem de fundo
         Image:
             source: "assets/fundo.jpg"
             allow_stretch: True
@@ -10,12 +11,14 @@
             size_hint: 1, 1
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
+        # Logo principal
         Image:
             source: "assets/logo1.png"
             size_hint: None, None
             size: "220dp", "220dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.78}
 
+        # Texto de apresentação
         MDLabel:
             text: "Sua prova de concurso criada pela IA"
             halign: "center"
@@ -26,6 +29,7 @@
             size_hint_y: None
             height: "50dp"
 
+        # Botão INICIAR
         MDRaisedButton:
             text: "INICIAR"
             md_bg_color: 0.09, 0.41, 0.81, 1
@@ -35,23 +39,40 @@
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
             on_release: root.ir_para_login()
 
+        # Botão Criar conta
         MDFlatButton:
             text: "Criar conta"
+            md_bg_color: 0.9, 0.9, 0.9, 1
             text_color: 1, 1, 1, 1
             size_hint: 0.6, None
             height: "45dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.43}
             on_release: root.ir_para_cadastro()
 
-        MDFillRoundFlatIconButton:
-            icon: "google"
-            text: "Entrar com Google"
+        # Botão Entrar com Google
+        MDRaisedButton:
             md_bg_color: 1, 1, 1, 0.9
-            text_color: 0, 0, 0, 1
             size_hint: 0.6, None
             height: "45dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.36}
+            on_release: root.entrar_com_google()
 
+            BoxLayout:
+                orientation: "horizontal"
+                padding: 10, 0
+                spacing: 10
+                Image:
+                    source: "assets/google_g.png"
+                    size_hint: None, None
+                    size: "24dp", "24dp"
+                MDLabel:
+                    text: "Entrar com Google"
+                    halign: "center"
+                    valign: "middle"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, 1
+
+        # Imagem inferior (IA)
         Image:
             source: "assets/ia.png"
             size_hint: None, None

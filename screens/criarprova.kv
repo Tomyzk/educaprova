@@ -1,0 +1,150 @@
+<CriarProvaScreen>:
+    name: "criarprova"
+
+    FloatLayout:
+
+        # Fundo
+        Image:
+            source: "assets/fundo.jpg"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        # Título principal
+        MDLabel:
+            text: "Criamos Sua Prova em segundos com IA"
+            halign: "center"
+            font_style: "H6"
+            theme_text_color: "Custom"
+            text_color: 0, 0.1, 0.3, 1
+            pos_hint: {"center_y": 0.93}
+
+        # Subtítulo
+        MDLabel:
+            text: "Criar Prova"
+            halign: "center"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+            pos_hint: {"center_y": 0.87}
+
+        # Linha de botões Importar PDF / JPG (sem espaço)
+        BoxLayout:
+            size_hint: 0.8, 0.09
+            pos_hint: {"center_x": 0.5, "center_y": 0.77}
+            spacing: 0
+
+            MDRaisedButton:
+                md_bg_color: 0.15, 0.15, 0.15, 1
+                size_hint: 0.5, None
+                on_release: root.abrir_popup_pdf()
+                
+                BoxLayout:
+                    orientation: "horizontal"
+                    spacing: 5
+                    padding: 0,0
+                    MDIcon:
+                        icon: "star"
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.9, 0, 1   # amarelo
+                        font_size: "12sp"
+                        halign: "center"
+                        valign: "middle"
+                    MDLabel:
+                        text: "Importar PDF"
+                        halign: "center"
+                        valign: "middle"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+
+            MDRaisedButton:
+                md_bg_color: 0.15, 0.15, 0.15, 1
+                size_hint: 0.5, None
+                on_release: root.importar_jpg()
+                
+                BoxLayout:
+                    orientation: "horizontal"
+                    spacing: 5
+                    padding: 0,0
+                    MDIcon:
+                        icon: "star"
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.9, 0, 1   # amarelo
+                        font_size: "12sp"
+                        halign: "center"
+                        valign: "middle"
+                    MDLabel:
+                        text: "Importar JPG"
+                        halign: "center"
+                        valign: "middle"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+
+        # Botão Gerar Prova (superior)
+        MDRaisedButton:
+            text: "GERAR PROVA"
+            md_bg_color: 0.1, 0.4, 0.8, 1
+            text_color: 1, 1, 1, 1
+            size_hint: 0.5, None
+            height: "45dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.67}
+            on_release: root.abrir_loading()  # chama a tela de carregamento
+
+        # Campo de texto da prova
+        MDTextField:
+            hint_text: "Digite o texto da prova"
+            size_hint_x: 0.8
+            height: "100dp"
+            mode: "rectangle"
+            multiline: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+
+        # Tipo de prova e nº de questões
+        BoxLayout:
+            size_hint: 0.8, 0.09
+            pos_hint: {"center_x": 0.5, "center_y": 0.42}
+            spacing: 30
+
+            BoxLayout:
+                orientation: "vertical"
+                MDLabel:
+                    text: "Tipo de prova"
+                    halign: "center"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: 0.2, 0.2, 0.2, 1
+                Spinner:
+                    text: "Múltipla escolha"
+                    values: ["Múltipla escolha", "Dissertativa"]
+                    size_hint_y: 0.7
+
+            BoxLayout:
+                orientation: "vertical"
+                MDLabel:
+                    text: "Nº de questões"
+                    halign: "center"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: 0.2, 0.2, 0.2, 1
+                Spinner:
+                    text: "10"
+                    values: ["10", "20", "30", "40"]
+                    size_hint_y: 0.7
+
+        # Botão Gerar Prova (inferior)
+        MDRaisedButton:
+            text: "GERAR PROVA"
+            md_bg_color: 0.1, 0.4, 0.8, 1
+            text_color: 1, 1, 1, 1
+            size_hint: 0.5, None
+            height: "45dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.28}
+            on_release: root.abrir_loading()
+
+        # Botão Voltar
+        MDFlatButton:
+            text: "Voltar"
+            text_color: 0, 0, 0, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.18}
+            on_release: app.root.current = "login"

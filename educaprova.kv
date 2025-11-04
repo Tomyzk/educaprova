@@ -2,169 +2,301 @@ GerenciadorTelas:
     HomeScreen:
     LoginScreen:
     CadastroScreen:
-
+    CriarProvaScreen:
+    LoadingScreen:
 
 <HomeScreen>:
     name: "home"
-
     FloatLayout:
-
         Image:
             source: "assets/fundo.jpg"
             allow_stretch: True
             keep_ratio: False
             size_hint: 1, 1
-
         Image:
             source: "assets/logo1.png"
             size_hint: None, None
             size: "220dp", "220dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.78}
-
         MDLabel:
             text: "Sua prova de concurso criada pela IA"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
+            text_color: 1,1,1,1
             font_style: "Body1"
             pos_hint: {"center_y": 0.6}
-
         MDRaisedButton:
             text: "INICIAR"
-            md_bg_color: 0.09, 0.41, 0.81, 1
-            text_color: 1, 1, 1, 1
+            md_bg_color: 0.09,0.41,0.81,1
+            text_color: 1,1,1,1
             size_hint: 0.6, None
             height: "45dp"
-            pos_hint: {"center_x": 0.5, "center_y": 0.5}
-            on_release:
-                app.root.current = "login"
-
+            pos_hint: {"center_x":0.5, "center_y":0.5}
+            on_release: app.root.current = "login"
         MDFlatButton:
             text: "Criar conta"
-            text_color: 1, 1, 1, 1
+            md_bg_color: 0.9, 0.9, 0.9, 1
+            text_color: 1,1,1,1
             size_hint: 0.6, None
             height: "45dp"
-            pos_hint: {"center_x": 0.5, "center_y": 0.43}
-            on_release:
-                app.root.current = "cadastro"
-
+            pos_hint: {"center_x":0.5, "center_y":0.43}
+            on_release: app.root.current = "cadastro"
         MDFillRoundFlatIconButton:
-            icon: "google"
-            text: "Entrar com Google"
+
+            # Botão entrar com Google
+
+        MDRaisedButton:
             md_bg_color: 1, 1, 1, 0.9
-            text_color: 0, 0, 0, 1
             size_hint: 0.6, None
             height: "45dp"
             pos_hint: {"center_x": 0.5, "center_y": 0.36}
+            on_release: root.entrar_com_google()
 
+            BoxLayout:
+                orientation: "horizontal"
+                padding: 10, 0
+                spacing: 10
+                Image:
+                    source: "assets/google_g.png"
+                    size_hint: None, None
+                    size: "24dp", "24dp"
+                MDLabel:
+                    text: "Entrar com Google"
+                    halign: "center"
+                    valign: "middle"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, 1
         Image:
             source: "assets/ia.png"
             size_hint: None, None
             size: "200dp", "200dp"
-            pos_hint: {"center_x": 0.5, "center_y": 0.13}
-
+            pos_hint: {"center_x":0.5, "center_y":0.13}
 
 <LoginScreen>:
     name: "login"
-
     FloatLayout:
-
         Image:
             source: "assets/fundo.jpg"
             allow_stretch: True
             keep_ratio: False
             size_hint: 1, 1
-
+        Image:
+            source: "assets/logo1.png"
+            size_hint: None, None
+            size: "220dp", "220dp"
+            pos_hint: {"center_x":0.5, "center_y":0.78}
         MDLabel:
             text: "Login"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
+            text_color: 1,1,1,1
             font_style: "H5"
-            pos_hint: {"center_y": 0.83}
-
+            pos_hint: {"center_y":0.83}
         MDTextField:
             hint_text: "E-mail"
             icon_right: "email"
             size_hint_x: 0.8
-            pos_hint: {"center_x": 0.5, "center_y": 0.65}
+            pos_hint: {"center_x":0.5, "center_y":0.65}
             mode: "rectangle"
-
         MDTextField:
             hint_text: "Senha"
             password: True
             icon_right: "lock"
             size_hint_x: 0.8
-            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+            pos_hint: {"center_x":0.5, "center_y":0.55}
             mode: "rectangle"
-
         MDRaisedButton:
             text: "ENTRAR"
-            md_bg_color: 0.09, 0.41, 0.81, 1
-            text_color: 1, 1, 1, 1
+            md_bg_color: 0.09,0.41,0.81,1
+            text_color: 1,1,1,1
             size_hint_x: 0.6
-            pos_hint: {"center_x": 0.5, "center_y": 0.43}
-
+            pos_hint: {"center_x":0.5, "center_y":0.43}
+            on_release: app.root.current = "criarprova"
         MDFlatButton:
             text: "Voltar"
-            text_color: 1, 1, 1, 1
-            pos_hint: {"center_x": 0.5, "center_y": 0.35}
-            on_release:
-                app.root.current = "home"
-
-
+            text_color: 1,1,1,1
+            pos_hint: {"center_x":0.5, "center_y":0.35}
+            on_release: app.root.current = "home"
 
 <CadastroScreen>:
     name: "cadastro"
-
     FloatLayout:
-
         Image:
             source: "assets/fundo.jpg"
             allow_stretch: True
             keep_ratio: False
-            size_hint: 1, 1
-
+            size_hint: 1,1
+        Image:
+            source: "assets/logo1.png"
+            size_hint: None,None
+            size: "220dp","220dp"
+            pos_hint: {"center_x":0.5,"center_y":0.78}
         MDLabel:
             text: "Criar Conta"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
+            text_color: 1,1,1,1
             font_style: "H5"
-            pos_hint: {"center_y": 0.83}
-
+            pos_hint: {"center_y":0.83}
         MDTextField:
             hint_text: "Nome completo"
             icon_right: "account"
             size_hint_x: 0.8
-            pos_hint: {"center_x": 0.5, "center_y": 0.67}
+            pos_hint: {"center_x":0.5,"center_y":0.67}
             mode: "rectangle"
-
         MDTextField:
             hint_text: "E-mail"
             icon_right: "email"
             size_hint_x: 0.8
-            pos_hint: {"center_x": 0.5, "center_y": 0.57}
+            pos_hint: {"center_x":0.5,"center_y":0.57}
             mode: "rectangle"
-
         MDTextField:
             hint_text: "Senha"
             password: True
             icon_right: "lock"
             size_hint_x: 0.8
-            pos_hint: {"center_x": 0.5, "center_y": 0.47}
+            pos_hint: {"center_x":0.5,"center_y":0.47}
             mode: "rectangle"
-
         MDRaisedButton:
             text: "CRIAR CONTA"
-            md_bg_color: 0.09, 0.41, 0.81, 1
-            text_color: 1, 1, 1, 1
+            md_bg_color: 0.09,0.41,0.81,1
+            text_color: 1,1,1,1
             size_hint_x: 0.6
-            pos_hint: {"center_x": 0.5, "center_y": 0.35}
-
+            pos_hint: {"center_x":0.5,"center_y":0.35}
         MDFlatButton:
             text: "Voltar"
-            text_color: 1, 1, 1, 1
-            pos_hint: {"center_x": 0.5, "center_y": 0.27}
-            on_release:
-                app.root.current = "home"
+            text_color: 1,1,1,1
+            pos_hint: {"center_x":0.5,"center_y":0.27}
+            on_release: app.root.current = "home"
+
+<CriarProvaScreen>:
+    name: "criarprova"
+    FloatLayout:
+        Image:
+            source: "assets/fundo.jpg"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 1,1
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+        MDLabel:
+            text: "Criamos Sua Prova em segundos com IA"
+            halign: "center"
+            font_style: "H6"
+            theme_text_color: "Custom"
+            text_color: 0,0.1,0.3,1
+            pos_hint: {"center_y":0.93}
+        MDLabel:
+            text: "Criar Prova"
+            halign: "center"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0,0,0,1
+            pos_hint: {"center_y":0.87}
+        BoxLayout:
+            size_hint: 0.8,0.09
+            pos_hint: {"center_x":0.5,"center_y":0.77}
+            spacing: 10
+            MDRaisedButton:
+                md_bg_color: 0.15,0.15,0.15,1
+                size_hint: 0.48,None
+                on_release: root.abrir_popup_pdf()
+                BoxLayout:
+                    spacing: 5
+                    padding: 0
+                    MDIcon:
+                        icon: "star"
+                        theme_text_color: "Custom"
+                        text_color: 1,0.9,0,1
+                        font_size: "14sp"
+                    MDLabel:
+                        text: "Importar PDF"
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: 1,1,1,1
+            MDRaisedButton:
+                md_bg_color: 0.15,0.15,0.15,1
+                size_hint: 0.48,None
+                on_release: root.importar_jpg()
+                BoxLayout:
+                    spacing: 5
+                    padding: 0
+                    MDIcon:
+                        icon: "star"
+                        theme_text_color: "Custom"
+                        text_color: 1,0.9,0,1
+                        font_size: "14sp"
+                    MDLabel:
+                        text: "Importar JPG"
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: 1,1,1,1
+        MDRaisedButton:
+            text: "GERAR PROVA"
+            md_bg_color: 0.1,0.4,0.8,1
+            text_color: 1,1,1,1
+            size_hint: 0.5,None
+            height: "45dp"
+            pos_hint: {"center_x":0.5,"center_y":0.67}
+            on_release: root.gerar_prova()
+        MDTextField:
+            hint_text: "Digite o texto da prova"
+            size_hint_x: 0.8
+            height: "100dp"
+            mode: "rectangle"
+            multiline: True
+            pos_hint: {"center_x":0.5,"center_y":0.55}
+        BoxLayout:
+            size_hint: 0.8,0.09
+            pos_hint: {"center_x":0.5,"center_y":0.42}
+            spacing: 30
+            BoxLayout:
+                orientation: "vertical"
+                MDLabel:
+                    text: "Tipo de prova"
+                    halign: "center"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: 0.2,0.2,0.2,1
+                Spinner:
+                    text: "Múltipla escolha"
+                    values: ["Múltipla escolha","Dissertativa"]
+                    size_hint_y: 0.7
+            BoxLayout:
+                orientation: "vertical"
+                MDLabel:
+                    text: "Nº de questões"
+                    halign: "center"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: 0.2,0.2,0.2,1
+                Spinner:
+                    text: "10"
+                    values: ["10","20","30","40"]
+                    size_hint_y: 0.7
+        MDRaisedButton:
+            text: "GERAR PROVA"
+            md_bg_color: 0.1,0.4,0.8,1
+            text_color: 1,1,1,1
+            size_hint: 0.5,None
+            height: "45dp"
+            pos_hint: {"center_x":0.5,"center_y":0.28}
+            on_release: root.gerar_prova()
+        MDFlatButton:
+            text: "Voltar"
+            text_color: 0,0,0,1
+            pos_hint: {"center_x":0.5,"center_y":0.18}
+            on_release: app.root.current = "login"
+
+<LoadingScreen>:
+    name: "loading"
+    FloatLayout:
+        MDSpinner:
+            size_hint: None,None
+            size: "50dp","50dp"
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: True
+            color: 0,0.5,1,1
+        MDLabel:
+            text: "Gerando prova..."
+            halign: "center"
+            pos_hint: {"center_x":0.5,"center_y":0.4}
