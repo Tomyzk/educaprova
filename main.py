@@ -1,50 +1,45 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.clock import Clock
+from kivy.uix.screenmanager import ScreenManager
+from kivymd.uix.screen import MDScreen
 
-# ---- TELAS ----
-class HomeScreen(Screen):
-    pass
+# -------------------------------
+# IMPORTA SUAS TELAS
+# -------------------------------
+from screens.homescreen import HomeScreen
+from screens.loginscreen import LoginScreen
+from screens.cadastroscreen import CadastroScreen
+from screens.criarprovascreen import CriarProvaScreen
 
-class LoginScreen(Screen):
-    pass
-
-class CadastroScreen(Screen):
-    pass
-
-class CriarProvaScreen(Screen):
-    def abrir_popup_pdf(self):
-        print("Importar PDF")
-
-    def importar_jpg(self):
-        print("Importar JPG")
-
-    def gerar_prova(self):
-        # Mostra tela de carregamento
-        self.manager.current = "loading"
-        # Simula 2 segundos de geração
-        Clock.schedule_once(self.voltar_criarprova, 2)
-
-    def voltar_criarprova(self, dt):
-        self.manager.current = "criarprova"
-
-
-class LoadingScreen(Screen):
+# (Se você ainda não tiver um arquivo específico para LoadingScreen,
+# pode deixar ela definida aqui mesmo no main.py)
+class LoadingScreen(MDScreen):
     pass
 
 
+# -------------------------------
+# GERENCIADOR DE TELAS
+# -------------------------------
 class GerenciadorTelas(ScreenManager):
     pass
 
 
+# -------------------------------
+# APLICAÇÃO PRINCIPAL
+# -------------------------------
 class EducaProvaApp(MDApp):
     def build(self):
-        self.title = "EducaProva Concurso"
-        self.icon = "assets/logoprincipal.png"
+        # Define propriedades do app
+        self.title = "EducaProva"
+        self.icon = "assets/logo1.png"
+
+        # Define tamanho de janela (opcional, apenas para desktop)
         Window.size = (360, 800)
+
+        # Carrega o arquivo KV principal
         return Builder.load_file("educaprova.kv")
+
 
 if __name__ == "__main__":
     EducaProvaApp().run()

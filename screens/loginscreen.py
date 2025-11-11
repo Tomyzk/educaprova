@@ -1,17 +1,19 @@
-from kivy.uix.screenmanager import Screen
-from kivy.lang import Builder
+from kivymd.uix.screen import MDScreen
+from kivymd.toast import toast
+from services.usuarios_service import verificar_login
 
-Builder.load_file("screens/login.kv")
 
-class LoginScreen(Screen):
+class LoginScreen(MDScreen):
     def fazer_login(self):
-        usuario = self.ids.usuario.text
-        senha = self.ids.senha.text
+        email = self.ids.email.text.strip()
+        senha = self.ids.senha.text.strip()
 
-        if usuario == "admin" and senha == "123":
-            print("Login bem-sucedido!")
+        usuario = verificar_login(email, senha)
+
+        if usuario:
+            toast(f"Bem-vindo, {usuario['nome']}")
+            print(f"Login bem-sucedido: {usuario}")
+            self.manager.current = "criarprova"
         else:
-            print("Usuário ou senha incorretos!")
-
-    def voltar_home(self):
-        self.manager.current = "home"
+            toast("Usuário ou senha incorretos")
+            print("Falha no login")

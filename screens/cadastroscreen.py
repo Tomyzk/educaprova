@@ -1,13 +1,25 @@
-from kivy.uix.screenmanager import Screen
-from kivy.lang import Builder
+from kivymd.uix.screen import MDScreen
+from kivymd.toast import toast
+from services.usuarios_service import cadastrar_usuario
 
-Builder.load_file("screens/cadastro.kv")
 
-class CadastroScreen(Screen):
+class CadastroScreen(MDScreen):
     def cadastrar(self):
-        usuario = self.ids.usuario.text
-        senha = self.ids.senha.text
-        print(f"Usuário cadastrado: {usuario}")
+        """
+        Coleta os dados do formulário e cadastra o usuário no banco de dados.
+        """
+        # Acessa os campos do KV
+        nome = self.ids.nome.text.strip()
+        email = self.ids.email.text.strip()
+        senha = self.ids.senha.text.strip()
 
-    def voltar_home(self):
-        self.manager.current = "home"
+        if not nome or not email or not senha:
+            toast("Preencha todos os campos!")
+            return
+
+        # Chama o serviço de banco
+        resultado = cadastrar_usuario(nome, email, senha)
+
+        # Exibe a mensagem na tela e no terminal
+        toast(resultado)
+        print(resultado)
