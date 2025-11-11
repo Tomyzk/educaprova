@@ -1,11 +1,5 @@
-from kivy.uix.screenmanager import Screen
-from kivy.lang import Builder
+from kivymd.uix.screen import MDScreen
 
-Builder.load_file("screens/home.kv")
-
-class HomeScreen(Screen):
-    def ir_para_login(self):
-        self.manager.current = "login"
-
-    def ir_para_cadastro(self):
-        self.manager.current = "cadastro"
+class HomeScreen(MDScreen):
+    def entrar_com_google(self):
+        print("🔗 Função 'Entrar com Google' ainda não implementada.")
