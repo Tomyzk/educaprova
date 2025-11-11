@@ -1,0 +1,29 @@
+﻿#  Ambiente virtual 
+.venv/
+venv/
+
+#  Cache Python 
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+#  Logs e builds 
+*.log
+build/
+dist/
+*.spec
+
+#  Variáveis de ambiente 
+.env
+.env.*
+!.env.example
+
+#  Arquivos temporários 
+*.tmp
+*.bak
+*.swp
+
+#  IDEs e configurações 
+.vscode/
+.idea/
