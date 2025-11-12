@@ -7,6 +7,7 @@ kivy_deps.gstreamer==0.3.4
 
 #  banco de dados 
 mysql-connector-python==9.0.0
+bcrypt==4.2.0
 
 #  variáveis de ambiente 
 python-dotenv==1.0.1
@@ -19,3 +20,8 @@ requests==2.32.3
 #  imagens e utilidades 
 pillow==10.4.0
 pydantic==2.8.2
+
+#  extrair texto de PDF (PyMuPDF)
+pymupdf==1.24.9
+numpy==2.1.3
+

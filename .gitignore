@@ -29,5 +29,5 @@ dist/
 .idea/
 
 # Banco de dados
-database.py
+
 
