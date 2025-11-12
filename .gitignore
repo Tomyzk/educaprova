@@ -27,3 +27,7 @@ dist/
 #  IDEs e configurações 
 .vscode/
 .idea/
+
+# Banco de dados
+database.py
+
