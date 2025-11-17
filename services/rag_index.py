@@ -12,7 +12,7 @@ INDEX_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 EMB_PATH = os.path.join(INDEX_DIR, "embeddings.npy")
 META_PATH = os.path.join(INDEX_DIR, "embeddings_meta.json")
 
-EMB_MODEL = "text-embedding-3-small"  # custo baixo, 1536 dims
+EMB_MODEL = "text-embedding-3-small"
 
 def _pdf_to_text(path: str) -> str:
     doc = fitz.open(path)
@@ -55,7 +55,6 @@ def indexar_provas():
     metas = []
     vectors = []
 
-    # varre PDFs e TXTs
     for fname in os.listdir(DATA_DIR):
         fpath = os.path.join(DATA_DIR, fname)
         if not os.path.isfile(fpath):
