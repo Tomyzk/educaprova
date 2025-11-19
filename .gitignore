@@ -28,6 +28,11 @@ dist/
 .vscode/
 .idea/
 
-# Banco de dados
+# Banco de dados  
 
+# Arquivos do índice de embeddings 
+data/embeddings.npy
+data/embeddings_meta.json
 
+# Arquivos das provas
+data/provas/*

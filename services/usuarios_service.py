@@ -9,7 +9,6 @@ def cadastrar_usuario(nome, email, senha):
 
     cursor = conexao.cursor()
     try:
-        # Criptografa a senha antes de salvar
         senha_hash = bcrypt.hashpw(senha.encode("utf-8"), bcrypt.gensalt())
 
         sql = "INSERT INTO usuarios (nome, email, senha_hash, tipo) VALUES (%s, %s, %s, %s)"
