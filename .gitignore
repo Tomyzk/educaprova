@@ -34,5 +34,3 @@ dist/
 data/embeddings.npy
 data/embeddings_meta.json
 
-# Arquivos das provas
-data/provas/*

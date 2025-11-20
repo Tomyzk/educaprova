@@ -5,7 +5,7 @@ from openai import OpenAI
 
 # CHAVE DIRETO NO CÓDIGO POR ENQUANTO 
 client = OpenAI(
-    api_key="MINHA CHAVE AQUI"
+    api_key="MINHA CHAVE"
 )
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "provas")

@@ -6,7 +6,7 @@ from openai import OpenAI
 
 # CHAVE DIRETO NO CÓDIGO POR ENQUANTO 
 client = OpenAI(
-    api_key="MINHA CHAVE AQUI" 
+    api_key="MINHA CHAVE" 
 )
 
 GEN_MODEL = "gpt-4o-mini" 
